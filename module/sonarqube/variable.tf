@@ -18,5 +18,10 @@ variable "associate_public_ip_address" {
 
 variable "vpc_security_group_ids" {}
 
-variable "server-Sonarqube" {}
+variable "server-Sonarqube" {} 
+
+variable "license_key" {
+  description = "New Relic License Key"
+  type        = string
+}
 

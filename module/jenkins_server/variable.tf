@@ -16,4 +16,9 @@ variable "subnet_id" {}
 
 variable "jenkins-sg-id" {} 
 
-variable "keypair" {}
+variable "keypair" {} 
+
+variable "license_key" {
+  description = "New Relic License Key"
+  type        = string
+}

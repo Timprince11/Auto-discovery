@@ -1,0 +1,21 @@
+---
+ - hosts: webservers
+   become: true
+   tasks:
+   - name: login to dockerhub
+     command: docker login -u "{{ docker_username }}" -p "{{ docker_password }}"
+   - name: Stop any container running
+     command: docker stop testappContainer
+     ignore_errors: yes
+   - name: Remove stopped container
+     command: docker rm testappContainer
+     ignore_errors: yes
+   - name: Remove docker image
+     command: docker rmi cloudhight/testapp
+     ignore_errors: yes
+   - name: Pull docker image from dockerhub
+     command: docker pull cloudhight/testapp
+     ignore_errors: yes
+   - name: Create container from pet adoption image
+     command: docker run -it -d --name testappContainer -p 8080:8085 cloudhight/testapp
+     ignore_errors: yes

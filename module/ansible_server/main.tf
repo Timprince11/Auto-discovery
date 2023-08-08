@@ -36,7 +36,7 @@ sudo chmod 400 /etc/ansible/key.pem
 sudo chmod 755 /etc/ansible/staging-discovery.sh
 sudo chmod 755 /etc/ansible/prod-discovery.sh    
 #NEW RELIC SETUP
-echo "license_key: 605c516f995f5c58bb7ec47f2d396991" | sudo tee -a /etc/newrelic-infra.yml
+echo "license_key: ${var.license_key}" | sudo tee -a /etc/newrelic-infra.yml
 sudo curl -o /etc/yum.repos.d/newrelic-infra.repo https://download.newrelic.com/infrastructure_agent/linux/yum/el/7/x86_64/newrelic-infra.repo
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='newrelic-infra'
 sudo yum install newrelic-infra -y --nobest

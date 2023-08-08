@@ -38,4 +38,9 @@ variable "prod-MyPlaybook" {
 
 variable "prod-discovery_script" {
   default = "~/scripts/prod-discovery.txt"
-} 
+}  
+
+variable "license_key" {
+  description = "New Relic License Key"
+  type        = string
+}
